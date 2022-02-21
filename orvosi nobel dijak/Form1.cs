@@ -14,18 +14,14 @@ namespace orvosi_nobel_dijak
     public partial class Form1 : Form
     {
 
-       
+     
 
-        private void button2_Click(object sender, EventArgs e)
+            private void button2_Click(object sender, EventArgs e)
         {
-           
+
 
             //8.c
-            if (!int.TryParse(textBox1.Text, out int év) || év < 1989)
-            {
-                MessageBox.Show("Hiba! Az évszám nem megfelelő!");
-                return;
-            }
+
             //Mentés
             try
             {
@@ -39,15 +35,16 @@ namespace orvosi_nobel_dijak
                 MessageBox.Show($"Hiba az állomány írásánál!\n{ex.Message}");
                 throw;
             }
-         }
+        }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+            if (!int.TryParse(textBox1.Text, out int év) || év < 1989)
             {
-                MessageBox.Show("Töltsön ki minden mezőt!");
+                MessageBox.Show("Hiba! Az évszám nem megfelelő!");
                 return;
             }
+
         }
 
         private void textBox6_TextChanged(object sender, EventArgs e)
@@ -76,4 +73,9 @@ namespace orvosi_nobel_dijak
                 return;
             }
         }
+
+       
+
+        
     }
+}
